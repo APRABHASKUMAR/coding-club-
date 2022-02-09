@@ -112,7 +112,7 @@ class _IntroScreenState extends State<IntroScreen>
                     ),
                   ),
                 ),
-                Text('MADE BY A PRABHAS KUMAR', style: textstyle2,)
+               
               ],
             ),
           )),

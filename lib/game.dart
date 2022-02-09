@@ -15,6 +15,7 @@ class _gameState extends State<game> {
     int filledboxes = 0;
     int scoreofo = 0;
     int scoreofx = 0;
+    bool win = false;
     var textstyle = const TextStyle(color: Colors.white,fontSize: 30,fontFamily: 'ArchitectsDaughter',fontWeight: FontWeight.w700);
   @override
   Widget build(BuildContext context) {
@@ -108,43 +109,52 @@ class _gameState extends State<game> {
              displaychar[0] == displaychar[2] &&    // row 1
              displaychar[0] != ' ') {
                _showresult(displaychar[0]);
+               win = true;
+
              }
           if ( displaychar[3] == displaychar[4] &&
              displaychar[4] == displaychar[5] &&    // row 2
              displaychar[4] != ' ') {
                _showresult(displaychar[3]);
+                win = true;
              }
           if ( displaychar[6] == displaychar[7] &&
              displaychar[7] == displaychar[8] &&    // row 3
              displaychar[7] != ' ') {
                _showresult(displaychar[6]);
+                win = true;
              }
             if ( displaychar[0] == displaychar[3] &&
              displaychar[0] == displaychar[6] &&    // col 1
              displaychar[0] != ' ') {
                _showresult(displaychar[0]);
+                win = true;
              }
             if ( displaychar[1] == displaychar[4] &&
              displaychar[4] == displaychar[7] &&    // col 2
              displaychar[1] != ' ') {
                _showresult(displaychar[1]);
+                win = true;
              }
             if ( displaychar[2] == displaychar[5] &&
              displaychar[5] == displaychar[8] &&    // col 3
              displaychar[2] != ' ') {
                _showresult(displaychar[2]);
+                win = true;
              }
               if ( displaychar[0] == displaychar[4] &&
              displaychar[4] == displaychar[8] &&    // diag 1
              displaychar[0] != ' ') {
                _showresult(displaychar[0]);
+                win = true;
              }
               if ( displaychar[2] == displaychar[4] &&
              displaychar[4] == displaychar[6] &&    // diag 2
              displaychar[2] != ' ') {
                _showresult(displaychar[2]);
+                win = true;
              }
-             else if (filledboxes == 9){
+             else if (filledboxes == 9 && !win){
                _showdraw();
              }
       }
