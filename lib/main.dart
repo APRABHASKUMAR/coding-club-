@@ -27,6 +27,7 @@ class _IntroScreenState extends State<IntroScreen>
    var textstyle = const TextStyle(color: Colors.white,fontSize: 30,fontFamily: 'ArchitectsDaughter',fontWeight: FontWeight.w700);
   var textstyle1 = const TextStyle(color: Colors.black,fontSize: 30,fontFamily: 'ArchitectsDaughter',fontWeight: FontWeight.w700);
   var textstyle2 = const TextStyle(color: Colors.black,fontSize: 20,fontFamily: 'ArchitectsDaughter',fontWeight: FontWeight.w700);
+  var textstyle3 = const TextStyle(color: Colors.black,fontSize: 50,fontFamily: 'ArchitectsDaughter',fontWeight: FontWeight.w700,decoration: TextDecoration.underline, decorationStyle: TextDecorationStyle.wavy);
   @override
   Widget build(BuildContext context) {
     final color = Colors.white;
@@ -40,11 +41,11 @@ class _IntroScreenState extends State<IntroScreen>
               children: <Widget>[
                 Expanded(
                   child: Padding(
-                    padding: const EdgeInsets.only(top: 120.0),
+                    padding: const EdgeInsets.only(top: 80.0),
                     child: Container(
                       child: Text(
                         "TIC TAC TOE",
-                        style: textstyle1
+                        style: textstyle3
                       ),
                     ),
                   ),
@@ -112,7 +113,7 @@ class _IntroScreenState extends State<IntroScreen>
                     ),
                   ),
                 ),
-               
+               Text('Made by - A Prabhas Kumar', style: textstyle,)
               ],
             ),
           )),

@@ -70,7 +70,7 @@ class _gameState extends State<game> {
                 return GestureDetector(
                   onTap:() {_tapped(index);},
                 child: Container(
-                  decoration: BoxDecoration(border: Border.all(color: Colors.white)),
+                  decoration: BoxDecoration(border: Border.all(color: Colors.white, width: 2)),
                   child: Center(child: Text(displaychar[index],style: const TextStyle(color: Colors.white, fontSize: 40),),
                   ),
                   ),
@@ -154,7 +154,7 @@ class _gameState extends State<game> {
                _showresult(displaychar[2]);
                 win = true;
              }
-             else if (filledboxes == 9 && !win){
+             else if (filledboxes == 9 && win == false){
                _showdraw();
              }
       }
@@ -169,6 +169,7 @@ class _gameState extends State<game> {
                    child: Text('play again!'),
                    onPressed: (){_restart();
                    Navigator.of(context).pop();}
+                  
                  )]
                );
              }
@@ -180,23 +181,31 @@ class _gameState extends State<game> {
         scoreofx++;
       }
       }
-      void _showdraw() {
-        showDialog(
-          context: context,
-         builder: (BuildContext context){
-           return const AlertDialog(
-             title: const Text('match draw'),
-           );
-         }
-        );
-        
+       void _showdraw() {
+            showDialog(
+              barrierDismissible: false,
+              context: context,
+             builder: (BuildContext context){
+               return AlertDialog(
+                 title: Text('MATCH DRAW!!!'),
+                 actions:<Widget> [FlatButton(
+                   child: Text('play again!'),
+                   onPressed: (){_restart();
+                   Navigator.of(context).pop();}
+                  
+                 )]
+               );
+             }
+             );
+              
       }
       void _restart() {
         setState(() {
         for (int i=0; i < 9 ; i++) {
           displaychar[i] = ' ';
-          filledboxes = 0;
-        }  
+          }  
+           filledboxes = 0;
+           win = false;
         });
         
       }
